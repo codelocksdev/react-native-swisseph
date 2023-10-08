@@ -1,4 +1,4 @@
-
+\
 package com.reactlibrary;
 
 import com.facebook.react.bridge.Arguments;
@@ -57,7 +57,7 @@ public class RNSwissephModule extends ReactContextBaseJavaModule {
      * @param gregflag
      * @param promise
      */
-    @ReactMethod
+    @ReactMethod(isBlockingSynchronousMethod = true)
     public void swe_julday(int year,int month,int day,double hour,int gregflag,Promise promise){
 
         try {
@@ -78,7 +78,7 @@ public class RNSwissephModule extends ReactContextBaseJavaModule {
      * @param tjd
      * @param promise
      */
-    @ReactMethod
+    @ReactMethod(isBlockingSynchronousMethod = true)
     public void swe_deltat(double tjd,Promise promise){
 
         try {
@@ -99,7 +99,7 @@ public class RNSwissephModule extends ReactContextBaseJavaModule {
      * @param gregflag
      * @param promise
      */
-    @ReactMethod
+    @ReactMethod(isBlockingSynchronousMethod = true)
     public void swe_revjul(double julDay,int gregflag,Promise promise){
 
         try {
@@ -144,7 +144,7 @@ public class RNSwissephModule extends ReactContextBaseJavaModule {
      *
      * @return The converted date fields
      */
-    @ReactMethod
+    @ReactMethod(isBlockingSynchronousMethod = true)
     public void swe_utc_time_zone(int year,int month,int day,int hour,int min,double sec,double timezone,Promise promise){
 
         try {
@@ -169,7 +169,7 @@ public class RNSwissephModule extends ReactContextBaseJavaModule {
     /*
     * conversion between ecliptical and equatorial polar coordinates.
     */
-    @ReactMethod
+    @ReactMethod(isBlockingSynchronousMethod = true)
     public void swe_cotrans(double longitude,double latitude,double distance,double eps,Promise promise){
 
         try {
@@ -207,7 +207,7 @@ public class RNSwissephModule extends ReactContextBaseJavaModule {
      *
      * @return  Julian day number UT1
      */
-    @ReactMethod
+    @ReactMethod(isBlockingSynchronousMethod = true)
     public void swe_utc_to_jd(int year,int month,int day,int hour,int min,double sec,int gregflag,Promise promise){
 
         try {
@@ -235,7 +235,7 @@ public class RNSwissephModule extends ReactContextBaseJavaModule {
      *
      * @return  date
      */
-    @ReactMethod
+    @ReactMethod(isBlockingSynchronousMethod = true)
     public void swe_jdet_to_utc(double tjdEt,int gregflag,Promise promise){
 
         try {
@@ -268,7 +268,7 @@ public class RNSwissephModule extends ReactContextBaseJavaModule {
      *
      * @return  date
      */
-    @ReactMethod
+    @ReactMethod(isBlockingSynchronousMethod = true)
     public void swe_jdut1_to_utc(double tjdUt,int gregflag,Promise promise){
 
         try {
@@ -299,7 +299,7 @@ public class RNSwissephModule extends ReactContextBaseJavaModule {
      * @param altitude  The height above sea level in meters
      * @param promise
      */
-    @ReactMethod
+    @ReactMethod(isBlockingSynchronousMethod = true)
     public void swe_set_topo(double geolon,double geolat,double altitude,Promise promise){
 
         try {
@@ -324,7 +324,7 @@ public class RNSwissephModule extends ReactContextBaseJavaModule {
      *
      *  @return  name
      */
-    @ReactMethod
+    @ReactMethod(isBlockingSynchronousMethod = true)
     public void swe_get_planet_name(int ipl,Promise promise){
 
         try {
@@ -350,7 +350,7 @@ public class RNSwissephModule extends ReactContextBaseJavaModule {
      * @return longitude,latitude,speedLong,speedLat,speedDist
      *
      */
-    @ReactMethod
+    @ReactMethod(isBlockingSynchronousMethod = true)
     public void swe_calc_ut(double tjd_ut,int ipl,int iflag,Promise promise){
 
         try {
@@ -390,7 +390,7 @@ public class RNSwissephModule extends ReactContextBaseJavaModule {
      * @return longitude,latitude,speedLong,speedLat,speedDist
      *
      */
-    @ReactMethod
+    @ReactMethod(isBlockingSynchronousMethod = true)
     public void swe_calc(double tjd,int ipl,int iflag,Promise promise){
 
         try {
@@ -435,7 +435,7 @@ public class RNSwissephModule extends ReactContextBaseJavaModule {
      * @return cusp - (double[13]) The house cusps are returned here in cusp[1...12] for the houses 1 to 12.
      *         ascmc - (double[10]) The special points like ascendant etc. are returned here. See the list above.
      */
-    @ReactMethod
+    @ReactMethod(isBlockingSynchronousMethod = true)
     public void swe_houses(double tjd_ut,int iflag,double geolat,double geolon,String hsys,Promise promise){
 
         try {
@@ -478,7 +478,7 @@ public class RNSwissephModule extends ReactContextBaseJavaModule {
      * @return cusp - (double[13]) The house cusps are returned here in cusp[1...12] for the houses 1 to 12.
      *         ascmc - (double[10]) The special points like ascendant etc. are returned here. See the list above.
      */
-    @ReactMethod
+    @ReactMethod(isBlockingSynchronousMethod = true)
     public void swe_houses_armc(double armc,double geolat,double eps,String hsys,Promise promise){
 
         try {
@@ -520,7 +520,7 @@ public class RNSwissephModule extends ReactContextBaseJavaModule {
      *
      * @return longitude,latitude
      */
-    @ReactMethod
+    @ReactMethod(isBlockingSynchronousMethod = true)
     public void swe_house_pos(double armc,double geolat,double eps,String hsys,Promise promise){
 
         try {
@@ -553,7 +553,7 @@ public class RNSwissephModule extends ReactContextBaseJavaModule {
      * @param ayan_t0    Initial ayanamsha at t0, if sid_mode is SE_SIDM_USER. This is (tropical position - sidereal position) at date t0.
      * @param promise
      */
-    @ReactMethod
+    @ReactMethod(isBlockingSynchronousMethod = true)
     public void swe_set_sid_mode(int sid_mode,double t0,double ayan_t0,Promise promise){
 
         try {
@@ -578,7 +578,7 @@ public class RNSwissephModule extends ReactContextBaseJavaModule {
      *
      * @return ayanamsa
      */
-    @ReactMethod
+    @ReactMethod(isBlockingSynchronousMethod = true)
     public void swe_get_ayanamsa_ut(double tjd_ut,Promise promise){
 
         try {
@@ -602,7 +602,7 @@ public class RNSwissephModule extends ReactContextBaseJavaModule {
      *
      * @return sidtime
      */
-    @ReactMethod
+    @ReactMethod(isBlockingSynchronousMethod = true)
     public void swe_sidtime(double tjd_ut,Promise promise){
 
         try {
@@ -625,7 +625,7 @@ public class RNSwissephModule extends ReactContextBaseJavaModule {
 
      * @param promise
      */
-    @ReactMethod
+    @ReactMethod(isBlockingSynchronousMethod = true)
     public void swe_get_ayanamsa(double tjd_et,Promise promise){
 
         try {
@@ -651,7 +651,7 @@ public class RNSwissephModule extends ReactContextBaseJavaModule {
      *
      * @return longitude,latitude,distance
      */
-    @ReactMethod
+    @ReactMethod(isBlockingSynchronousMethod = true)
     public void swe_fixstar(String star,double tjd,int iflag,Promise promise){
 
         try {
@@ -687,7 +687,7 @@ public class RNSwissephModule extends ReactContextBaseJavaModule {
      *
      * @return longitude,latitude,distance
      */
-    @ReactMethod
+    @ReactMethod(isBlockingSynchronousMethod = true)
     public void swe_fixstar_ut(String star,double tjd_ut,int iflag,Promise promise){
 
         try {
@@ -714,7 +714,7 @@ public class RNSwissephModule extends ReactContextBaseJavaModule {
     }
 
 
-    @ReactMethod
+    @ReactMethod(isBlockingSynchronousMethod = true)
     public void swe_heliacal_ut(double tjd_ut, ReadableArray dgeoArray, ReadableArray datmArray,ReadableArray dobsArray,String object_name,int event_type, int helflag, Promise promise){
 
         try {
@@ -760,7 +760,7 @@ public class RNSwissephModule extends ReactContextBaseJavaModule {
     }
 
 
-    @ReactMethod
+    @ReactMethod(isBlockingSynchronousMethod = true)
     public void swe_heliacal_pheno_ut(double tjd_ut, ReadableArray dgeoArray, ReadableArray datmArray,ReadableArray dobsArray,String object_name,int event_type, int helflag, Promise promise){
 
         try {
@@ -835,7 +835,7 @@ public class RNSwissephModule extends ReactContextBaseJavaModule {
 
 
 
-    @ReactMethod
+    @ReactMethod(isBlockingSynchronousMethod = true)
     public void swe_vis_limit_mag(double tjd_ut, ReadableArray dgeoArray, ReadableArray datmArray,ReadableArray dobsArray,String object_name, int helflag, Promise promise){
 
         try {
@@ -885,7 +885,7 @@ public class RNSwissephModule extends ReactContextBaseJavaModule {
     }
 
 
-    @ReactMethod
+    @ReactMethod(isBlockingSynchronousMethod = true)
     public void swe_nod_aps_ut(double tjd_ut,int ipl,int iflag,int method,Promise promise){
         double[] xnasc = new double[6];
         double[] xndsc = new double[6];

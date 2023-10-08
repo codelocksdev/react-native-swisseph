@@ -24,7 +24,7 @@ RCT_EXPORT_MODULE()
         calendar ‘g’[regorian]|’j’[ulian]
  @return value for Julian day
  */
-RCT_EXPORT_METHOD(swe_julday:(int) year
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD`(swe_julday:(int) year
                   month:(int) month
                   day : (int) day
                   hour : (double) hour
@@ -47,7 +47,7 @@ RCT_EXPORT_METHOD(swe_julday:(int) year
  @param tjd,
  @return deltat
  */
-RCT_EXPORT_METHOD(swe_deltat:(double) tjd
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD`(swe_deltat:(double) tjd
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject
                   ) {
@@ -74,7 +74,7 @@ RCT_EXPORT_METHOD(swe_deltat:(double) tjd
          day ,
          hours
  */
-RCT_EXPORT_METHOD(swe_revjul:(double) julday
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD`(swe_revjul:(double) julday
                   gregflag : (int) gregflag
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject
@@ -109,7 +109,7 @@ RCT_EXPORT_METHOD(swe_revjul:(double) julday
  * For conversion from local time to utc, use +d_timezone.
  * For conversion from utc to local time, use -d_timezone.
  */
-RCT_EXPORT_METHOD(swe_utc_time_zone:(int) iyear
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD`(swe_utc_time_zone:(int) iyear
                   month : (int) imonth
                   day : (int) iday
                   hour : (int) ihour
@@ -145,7 +145,7 @@ RCT_EXPORT_METHOD(swe_utc_time_zone:(int) iyear
  * output: an array of doubles with Julian Day number in ET
  *             an error message (on error)
  */
-RCT_EXPORT_METHOD(swe_utc_to_jd:(int) year
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD`(swe_utc_to_jd:(int) year
                   month : (int) month
                   day : (int) day
                   hour : (int) hour
@@ -184,7 +184,7 @@ RCT_EXPORT_METHOD(swe_utc_to_jd:(int) year
  * input: Julian day number in ET (TT), calendar flag
  * output: year, month, day, hour, min, sec in UTC
  */
-RCT_EXPORT_METHOD(swe_jdet_to_utc:(double) tjd_et
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD`(swe_jdet_to_utc:(double) tjd_et
                   gregflag : (int) gregflag
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject
@@ -215,7 +215,7 @@ RCT_EXPORT_METHOD(swe_jdet_to_utc:(double) tjd_et
  * input: Julian day number in UT (UT1), calendar flag
  * output: year, month, day, hour, min, sec in UTC
  */
-RCT_EXPORT_METHOD(swe_jdut1_to_utc:(double) tjd_ut
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD`(swe_jdut1_to_utc:(double) tjd_ut
                   gregflag : (int) gregflag
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject
@@ -252,7 +252,7 @@ RCT_EXPORT_METHOD(swe_jdut1_to_utc:(double) tjd_ut
      geoalt - The height above sea level in meters
 
  */
-RCT_EXPORT_METHOD(swe_set_topo:(double) geolon
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD`(swe_set_topo:(double) geolon
                   geolat : (double) geolat
                   altitude : (double) altitude
                   resolver:(RCTPromiseResolveBlock)resolve
@@ -276,7 +276,7 @@ RCT_EXPORT_METHOD(swe_set_topo:(double) geolon
  *
  *  @return  name
  */
-RCT_EXPORT_METHOD(swe_get_planet_name:(int) ipl
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD`(swe_get_planet_name:(int) ipl
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject
                   ) {
@@ -301,7 +301,7 @@ RCT_EXPORT_METHOD(swe_get_planet_name:(int) ipl
  * @Return longitude,latitude,speedLong,speedLat,speedDist
  *
  */
-RCT_EXPORT_METHOD(swe_calc_ut:(double) tjd_ut
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD`(swe_calc_ut:(double) tjd_ut
                   ipl : (int) ipl
                   iflag : (int) iflag
                   resolver:(RCTPromiseResolveBlock)resolve
@@ -338,7 +338,7 @@ RCT_EXPORT_METHOD(swe_calc_ut:(double) tjd_ut
 /*
 * conversion between ecliptical and equatorial polar coordinates.
 */
-RCT_EXPORT_METHOD(swe_cotrans:(double) longitude
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD`(swe_cotrans:(double) longitude
                   latitude : (double) latitude
                   distance: (double) distance
                   eps: (double) eps
@@ -375,7 +375,7 @@ RCT_EXPORT_METHOD(swe_cotrans:(double) longitude
  * @return longitude,latitude,speedLong,speedLat,speedDist
  *
  */
-RCT_EXPORT_METHOD(swe_calc:(double) tjd
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD`(swe_calc:(double) tjd
                   ipl : (int) ipl
                   iflag : (int) iflag
                   resolver:(RCTPromiseResolveBlock)resolve
@@ -419,7 +419,7 @@ RCT_EXPORT_METHOD(swe_calc:(double) tjd
  * @Return cusp - (double[13]) The house cusps are returned here in cusp[1...12] for the houses 1 to 12.
  *         ascmc - (double[10]) The special points like ascendant etc. are returned here. See the list above.
  */
-RCT_EXPORT_METHOD(swe_houses:(double) tjd_ut
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD`(swe_houses:(double) tjd_ut
                   iflag : (int) iflag
                   geolat : (double) geolat
                   geolon : (double) geolon
@@ -473,7 +473,7 @@ RCT_EXPORT_METHOD(swe_houses:(double) tjd_ut
  * @return cusp - (double[13]) The house cusps are returned here in cusp[1...12] for the houses 1 to 12.
  *         ascmc - (double[10]) The special points like ascendant etc. are returned here. See the list above.
  */
-RCT_EXPORT_METHOD(swe_houses_armc:(double) armc
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD`(swe_houses_armc:(double) armc
                   geolat : (double) geolat
                   eps : (double) eps
                   hsys : (NSString *) hsysStr
@@ -521,7 +521,7 @@ RCT_EXPORT_METHOD(swe_houses_armc:(double) armc
  *
  * @return longitude,latitude
  */
-RCT_EXPORT_METHOD(swe_house_pos:(double) armc
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD`(swe_house_pos:(double) armc
                   geolat : (double) geolat
                   eps : (double) eps
                   hsys : (NSString *) hsysStr
@@ -559,7 +559,7 @@ RCT_EXPORT_METHOD(swe_house_pos:(double) armc
  * @param ayan_t0    Initial ayanamsha at t0, if sid_mode is SE_SIDM_USER. This is (tropical position - sidereal position) at date t0.
  * @param promise
  */
-RCT_EXPORT_METHOD(swe_set_sid_mode:(int) sid_mode
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD`(swe_set_sid_mode:(int) sid_mode
                   t0 : (double) t0
                   ayan_t0 : (double) ayan_t0
                   resolver:(RCTPromiseResolveBlock)resolve
@@ -586,7 +586,7 @@ RCT_EXPORT_METHOD(swe_set_sid_mode:(int) sid_mode
  *
  * @return ayanamsa
  */
-RCT_EXPORT_METHOD(swe_get_ayanamsa_ut:(int) tjd_ut
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD`(swe_get_ayanamsa_ut:(int) tjd_ut
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject
                   ) {
@@ -611,7 +611,7 @@ RCT_EXPORT_METHOD(swe_get_ayanamsa_ut:(int) tjd_ut
  *
  * @return sidtime
  */
-RCT_EXPORT_METHOD(swe_sidtime:(int) tjd_ut
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD`(swe_sidtime:(int) tjd_ut
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject
                   ) {
@@ -635,7 +635,7 @@ RCT_EXPORT_METHOD(swe_sidtime:(int) tjd_ut
  * @param promise
  */
 
-RCT_EXPORT_METHOD(swe_get_ayanamsa:(int) tjd_et
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD`(swe_get_ayanamsa:(int) tjd_et
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject
                   ) {
@@ -661,7 +661,7 @@ RCT_EXPORT_METHOD(swe_get_ayanamsa:(int) tjd_et
  *
  * @return longitude,latitude,distance
  */
-RCT_EXPORT_METHOD(swe_fixstar:(char*) star
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD`(swe_fixstar:(char*) star
                   tjd : (double) tjd
                   iflag : (int) iflag
                   resolver:(RCTPromiseResolveBlock)resolve
@@ -698,7 +698,7 @@ RCT_EXPORT_METHOD(swe_fixstar:(char*) star
  *
  * @return longitude,latitude,distance
  */
-RCT_EXPORT_METHOD(swe_fixstar_ut:(char*) star
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD`(swe_fixstar_ut:(char*) star
                   tjd_ut : (double) tjd_ut
                   iflag : (int) iflag
                   resolver:(RCTPromiseResolveBlock)resolve
@@ -732,7 +732,7 @@ RCT_EXPORT_METHOD(swe_fixstar_ut:(char*) star
 
 
 
-RCT_EXPORT_METHOD(swe_heliacal_ut:(double) tjd_ut
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD`(swe_heliacal_ut:(double) tjd_ut
                   dgeo : (NSArray*) dgeoArray
                   datm : (NSArray*) datmArray
                   dobs : (NSArray*) dobsArray
@@ -788,7 +788,7 @@ RCT_EXPORT_METHOD(swe_heliacal_ut:(double) tjd_ut
 
 
 
-RCT_EXPORT_METHOD(swe_heliacal_pheno_ut:(double) tjd_ut
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD`(swe_heliacal_pheno_ut:(double) tjd_ut
                   dgeo : (NSArray*) dgeoArray
                   datm : (NSArray*) datmArray
                   dobs : (NSArray*) dobsArray
@@ -870,7 +870,7 @@ RCT_EXPORT_METHOD(swe_heliacal_pheno_ut:(double) tjd_ut
 }
 
 
-RCT_EXPORT_METHOD(swe_vis_limit_mag:(double) tjd_ut
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD`(swe_vis_limit_mag:(double) tjd_ut
                   dgeo : (NSArray*) dgeoArray
                   datm : (NSArray*) datmArray
                   dobs : (NSArray*) dobsArray
@@ -927,7 +927,7 @@ RCT_EXPORT_METHOD(swe_vis_limit_mag:(double) tjd_ut
 }
 
 
-RCT_EXPORT_METHOD(swe_nod_aps_ut:(double) tjd_ut
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD`(swe_nod_aps_ut:(double) tjd_ut
                   ipl : (int) ipl
                   iflag : (int) iflag
                   method : (int) method
